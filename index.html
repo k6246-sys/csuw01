@@ -16,23 +16,23 @@
         body {
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-        /* Focus style customized for pink theme */
+        /* Focus style customized for purple theme */
         input:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.25);
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
         }
     </style>
 </head>
-<body class="bg-rose-50/50 text-slate-800 min-h-screen pb-12">
+<body class="bg-purple-50/50 text-slate-800 min-h-screen pb-12">
 
-    <!-- Header Section (Pink Theme) -->
-    <header class="bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-md mb-8">
+    <!-- Header Section (Purple Theme) -->
+    <header class="bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white shadow-md mb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-chart-line text-3xl text-rose-100"></i>
+                <i class="fa-solid fa-chart-line text-3xl text-purple-100"></i>
                 <div>
                     <h1 class="text-2xl font-bold tracking-tight">檢量線計算機</h1>
-                    <p class="text-rose-100 text-xs sm:text-sm">分析化學 / 實驗室數據擬合與未知樣品濃度定量系統</p>
+                    <p class="text-purple-100 text-xs sm:text-sm">分析化學 / 實驗室數據擬合與未知樣品濃度定量系統</p>
                 </div>
             </div>
             <button onclick="resetToDefaultData()" class="px-3 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg text-sm font-medium transition duration-150 backdrop-blur-sm shadow-sm flex items-center gap-2">
@@ -48,27 +48,27 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             
             <!-- Left Column: Standard Curve Data Entry -->
-            <div class="lg:col-span-6 bg-white rounded-2xl shadow-sm border border-rose-100 p-6 flex flex-col justify-between">
+            <div class="lg:col-span-6 bg-white rounded-2xl shadow-sm border border-purple-100 p-6 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-rose-100">
-                        <h2 class="text-lg font-semibold text-rose-900 flex items-center gap-2">
-                            <i class="fa-solid fa-flask text-rose-500"></i> 1. 標準品檢量數據 (5~8 組)
+                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-purple-100">
+                        <h2 class="text-lg font-semibold text-purple-900 flex items-center gap-2">
+                            <i class="fa-solid fa-flask text-purple-500"></i> 1. 標準品檢量數據 (5~8 組)
                         </h2>
-                        <span class="text-xs text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full font-medium" id="std-count-badge">已填入 5 組</span>
+                        <span class="text-xs text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full font-medium" id="std-count-badge">已填入 5 組</span>
                     </div>
 
                     <form id="stdForm" onsubmit="event.preventDefault(); calculateLinearRegression();">
                         <div class="overflow-x-auto mb-4">
                             <table class="w-full text-left text-sm">
                                 <thead>
-                                    <tr class="bg-rose-50/80 text-rose-800 rounded-lg">
+                                    <tr class="bg-purple-50/80 text-purple-800 rounded-lg">
                                         <th class="p-2.5 rounded-l-lg font-semibold">#</th>
                                         <th class="p-2.5 font-semibold">標準濃度 (ng/mL)</th>
                                         <th class="p-2.5 font-semibold">儀器訊號</th>
                                         <th class="p-2.5 text-center rounded-r-lg font-semibold">操作</th>
                                     </tr>
                                 </thead>
-                                <tbody id="stdTableBody" class="divide-y divide-rose-50">
+                                <tbody id="stdTableBody" class="divide-y divide-purple-50">
                                     <!-- Dynamic Rows Inserted Here -->
                                 </tbody>
                             </table>
@@ -76,34 +76,34 @@
 
                         <!-- Action buttons for table -->
                         <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-                            <button type="button" onclick="addStdRow()" class="px-3 py-2 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-lg text-sm font-medium transition duration-150 flex items-center gap-1.5">
+                            <button type="button" onclick="addStdRow()" class="px-3 py-2 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg text-sm font-medium transition duration-150 flex items-center gap-1.5">
                                 <i class="fa-solid fa-plus text-xs"></i> 新增標準品
                             </button>
                             <span class="text-xs text-slate-400">建議設定 5 至 8 組點位</span>
                         </div>
 
                         <!-- Calculate Button -->
-                        <button type="button" onclick="calculateLinearRegression()" class="w-full py-3 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 active:from-rose-700 active:to-pink-700 text-white font-semibold rounded-xl shadow-md transition duration-150 flex items-center justify-center gap-2 text-base">
+                        <button type="button" onclick="calculateLinearRegression()" class="w-full py-3 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 active:from-purple-700 active:to-fuchsia-700 text-white font-semibold rounded-xl shadow-md transition duration-150 flex items-center justify-center gap-2 text-base">
                             <i class="fa-solid fa-calculator"></i> 計算線性擬合 (線性回歸)
                         </button>
                     </form>
                 </div>
 
                 <!-- Regression Output Results -->
-                <div class="mt-6 pt-4 border-t border-rose-100 bg-rose-50/40 rounded-xl p-4">
-                    <h3 class="text-xs uppercase font-bold text-rose-400 tracking-wider mb-3">回歸分析結果 (6 位有效數字)</h3>
+                <div class="mt-6 pt-4 border-t border-purple-100 bg-purple-50/40 rounded-xl p-4">
+                    <h3 class="text-xs uppercase font-bold text-purple-400 tracking-wider mb-3">回歸分析結果 (6 位有效數字)</h3>
                     <div class="grid grid-cols-3 gap-2 text-center">
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-rose-100">
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-purple-100">
                             <span class="block text-xs text-slate-500 mb-1">斜率 (m / Slope)</span>
-                            <span id="res-slope" class="text-base font-bold text-rose-900">--</span>
+                            <span id="res-slope" class="text-base font-bold text-purple-900">--</span>
                         </div>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-rose-100">
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-purple-100">
                             <span class="block text-xs text-slate-500 mb-1">截距 (b / Intercept)</span>
-                            <span id="res-intercept" class="text-base font-bold text-rose-900">--</span>
+                            <span id="res-intercept" class="text-base font-bold text-purple-900">--</span>
                         </div>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-rose-100">
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-purple-100">
                             <span class="block text-xs text-slate-500 mb-1">判定係數 ($R^2$)</span>
-                            <span id="res-r2" class="text-base font-bold text-rose-900">--</span>
+                            <span id="res-r2" class="text-base font-bold text-purple-900">--</span>
                         </div>
                     </div>
                     
@@ -121,35 +121,35 @@
             </div>
 
             <!-- Right Column: Interactive Scatter Plot & Trendline -->
-            <div class="lg:col-span-6 bg-white rounded-2xl shadow-sm border border-rose-100 p-6 flex flex-col justify-between">
+            <div class="lg:col-span-6 bg-white rounded-2xl shadow-sm border border-purple-100 p-6 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-rose-100">
-                        <h2 class="text-lg font-semibold text-rose-900 flex items-center gap-2">
-                            <i class="fa-solid fa-chart-scatter text-rose-500"></i> 檢量線圖表
+                    <div class="flex items-center justify-between mb-4 pb-2 border-b border-purple-100">
+                        <h2 class="text-lg font-semibold text-purple-900 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-scatter text-purple-500"></i> 檢量線圖表
                         </h2>
-                        <span class="text-xs bg-rose-50 text-rose-700 px-2 py-1 rounded-md font-medium">X: 濃度 (ng/mL) | Y: 訊號</span>
+                        <span class="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-md font-medium">X: 濃度 (ng/mL) | Y: 訊號</span>
                     </div>
                     <div class="relative w-full h-[320px] sm:h-[380px]">
                         <canvas id="calibrationChart"></canvas>
                     </div>
                 </div>
-                <p class="text-xs text-slate-400 text-center mt-2">粉紅實心點為標準品實測值，紅色虛線為最小平方法擬合之回歸線</p>
+                <p class="text-xs text-slate-400 text-center mt-2">紫色實心點為標準品實測值，紫紅色虛線為最小平方法擬合之回歸線</p>
             </div>
         </div>
 
         <!-- Bottom Section: Unknown Samples Analysis -->
-        <div class="bg-white rounded-2xl shadow-sm border border-rose-100 p-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 pb-2 border-b border-rose-100 gap-2">
+        <div class="bg-white rounded-2xl shadow-sm border border-purple-100 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 pb-2 border-b border-purple-100 gap-2">
                 <div>
-                    <h2 class="text-lg font-semibold text-rose-900 flex items-center gap-2">
-                        <i class="fa-solid fa-vial-circle-check text-rose-500"></i> 2. 未知樣品定量計算
+                    <h2 class="text-lg font-semibold text-purple-900 flex items-center gap-2">
+                        <i class="fa-solid fa-vial-circle-check text-purple-500"></i> 2. 未知樣品定量計算
                     </h2>
                     <p class="text-xs text-slate-500">計算公式：濃度 = [(訊號 − 截距) ÷ 斜率] × 稀釋倍數</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
                     <span class="text-xs text-slate-500 font-medium hidden sm:inline-block">批次新增:</span>
-                    <input type="number" id="add-sample-count" value="49" min="1" max="200" class="w-16 p-1.5 border border-rose-200 rounded-lg text-sm text-center focus:border-rose-500" title="輸入要新增的樣品數量">
-                    <button type="button" onclick="addMultipleSamples()" class="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-lg text-sm font-medium transition duration-150 flex items-center gap-1.5">
+                    <input type="number" id="add-sample-count" value="49" min="1" max="200" class="w-16 p-1.5 border border-purple-200 rounded-lg text-sm text-center focus:border-purple-500" title="輸入要新增的樣品數量">
+                    <button type="button" onclick="addMultipleSamples()" class="px-3 py-1.5 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg text-sm font-medium transition duration-150 flex items-center gap-1.5">
                         <i class="fa-solid fa-plus text-xs"></i> 建立樣品列
                     </button>
                     <button type="button" onclick="copyResultsToExcel(this)" class="px-3 py-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-100 rounded-lg text-sm font-medium transition duration-150 flex items-center gap-1.5 sm:ml-2">
@@ -161,7 +161,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-sm">
                     <thead>
-                        <tr class="bg-rose-50/80 text-rose-800">
+                        <tr class="bg-purple-50/80 text-purple-800">
                             <th class="p-3 rounded-l-lg font-semibold min-w-[120px]">樣品名稱</th>
                             <th class="p-3 font-semibold min-w-[140px]">儀器訊號</th>
                             <th class="p-3 font-semibold min-w-[120px]">稀釋倍數</th>
@@ -171,7 +171,7 @@
                             <th class="p-3 text-center rounded-r-lg font-semibold min-w-[60px]">操作</th>
                         </tr>
                     </thead>
-                    <tbody id="sampleTableBody" class="divide-y divide-rose-50">
+                    <tbody id="sampleTableBody" class="divide-y divide-purple-50">
                         <!-- Dynamic Sample Rows -->
                     </tbody>
                 </table>
@@ -240,17 +240,17 @@
             const rowCount = tbody.children.length;
             
             const tr = document.createElement('tr');
-            tr.className = 'hover:bg-rose-50/30 transition-colors';
+            tr.className = 'hover:bg-purple-50/30 transition-colors';
             tr.innerHTML = `
-                <td class="p-2.5 font-medium text-rose-400 row-index">${rowCount + 1}</td>
+                <td class="p-2.5 font-medium text-purple-400 row-index">${rowCount + 1}</td>
                 <td class="p-2.5">
-                    <input type="number" step="any" value="${conc}" placeholder="例如: 10" oninput="calculateLinearRegression()" class="std-conc w-full p-2 border border-rose-200 rounded-lg text-sm focus:border-rose-500">
+                    <input type="number" step="any" value="${conc}" placeholder="例如: 10" oninput="calculateLinearRegression()" class="std-conc w-full p-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500">
                 </td>
                 <td class="p-2.5">
-                    <input type="number" step="any" value="${signal}" placeholder="例如: 0.804" oninput="calculateLinearRegression()" class="std-signal w-full p-2 border border-rose-200 rounded-lg text-sm focus:border-rose-500">
+                    <input type="number" step="any" value="${signal}" placeholder="例如: 0.804" oninput="calculateLinearRegression()" class="std-signal w-full p-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500">
                 </td>
                 <td class="p-2.5 text-center">
-                    <button type="button" onclick="removeStdRow(this)" class="p-2 text-rose-300 hover:text-red-500 rounded-lg transition-colors" title="刪除列">
+                    <button type="button" onclick="removeStdRow(this)" class="p-2 text-purple-300 hover:text-red-500 rounded-lg transition-colors" title="刪除列">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </td>
@@ -281,22 +281,22 @@
             const sampleName = name || `樣品 ${String.fromCharCode(64 + index)}`;
 
             const tr = document.createElement('tr');
-            tr.className = 'hover:bg-rose-50/30 transition-colors';
+            tr.className = 'hover:bg-purple-50/30 transition-colors';
             tr.innerHTML = `
                 <td class="p-3">
-                    <input type="text" value="${sampleName}" placeholder="樣品名稱" class="sample-name w-full p-2 border border-rose-200 rounded-lg text-sm focus:border-rose-500 font-medium">
+                    <input type="text" value="${sampleName}" placeholder="樣品名稱" class="sample-name w-full p-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500 font-medium">
                 </td>
                 <td class="p-3">
-                    <input type="number" step="any" value="${signal}" placeholder="訊號值" oninput="calculateSamples()" class="sample-signal w-full p-2 border border-rose-200 rounded-lg text-sm focus:border-rose-500">
+                    <input type="number" step="any" value="${signal}" placeholder="訊號值" oninput="calculateSamples()" class="sample-signal w-full p-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500">
                 </td>
                 <td class="p-3">
-                    <input type="number" step="any" value="${dilution}" min="0.0001" placeholder="稀釋倍數" oninput="calculateSamples()" class="sample-dilution w-full p-2 border border-rose-200 rounded-lg text-sm focus:border-rose-500">
+                    <input type="number" step="any" value="${dilution}" min="0.0001" placeholder="稀釋倍數" oninput="calculateSamples()" class="sample-dilution w-full p-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500">
                 </td>
                 <td class="p-3 font-mono text-slate-700 sample-raw-conc">--</td>
-                <td class="p-3 font-mono font-bold text-pink-600 text-base sample-final-conc">--</td>
+                <td class="p-3 font-mono font-bold text-fuchsia-600 text-base sample-final-conc">--</td>
                 <td class="p-3 sample-status">--</td>
                 <td class="p-3 text-center">
-                    <button type="button" onclick="removeSampleRow(this)" class="p-2 text-rose-300 hover:text-red-500 rounded-lg transition-colors" title="刪除樣品">
+                    <button type="button" onclick="removeSampleRow(this)" class="p-2 text-purple-300 hover:text-red-500 rounded-lg transition-colors" title="刪除樣品">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </td>
@@ -432,7 +432,7 @@
             }
         }
 
-        // Render standard curve plot using Chart.js with Pink palette
+        // Render standard curve plot using Chart.js with Purple palette
         function renderChart(points, slope, intercept) {
             const ctx = document.getElementById('calibrationChart').getContext('2d');
 
@@ -464,8 +464,8 @@
                         {
                             label: '實測標準點',
                             data: points,
-                            backgroundColor: '#ec4899', // Pink point
-                            borderColor: '#db2777',
+                            backgroundColor: '#a855f7', // Purple point
+                            borderColor: '#9333ea',
                             borderWidth: 2,
                             pointRadius: 6,
                             pointHoverRadius: 8
@@ -475,7 +475,7 @@
                             data: trendlineData,
                             type: 'line',
                             fill: false,
-                            borderColor: '#e11d48', // Red trendline
+                            borderColor: '#d946ef', // Fuchsia trendline
                             borderWidth: 2,
                             borderDash: [5, 5],
                             pointRadius: 0,
@@ -510,7 +510,7 @@
                                 text: '標準品濃度 (ng/mL)',
                                 font: { weight: 'bold', size: 12 }
                             },
-                            grid: { color: '#ffe4e6' }
+                            grid: { color: '#f3e8ff' }
                         },
                         y: {
                             title: {
@@ -518,7 +518,7 @@
                                 text: '儀器回應訊號',
                                 font: { weight: 'bold', size: 12 }
                             },
-                            grid: { color: '#ffe4e6' }
+                            grid: { color: '#f3e8ff' }
                         }
                     }
                 }
@@ -556,8 +556,8 @@
                 // Range Verification logic: Check if un-diluted measured conc > max standard conc
                 if (rawConc > regressionResult.maxStdConc) {
                     statusEl.innerHTML = `
-                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200">
-                            <i class="fa-solid fa-triangle-exclamation"></i> 超出檢量线範圍
+                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200">
+                            <i class="fa-solid fa-triangle-exclamation"></i> 超出檢量線範圍
                         </span>
                     `;
                 } else if (rawConc < 0) {
